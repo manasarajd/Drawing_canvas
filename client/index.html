@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="toolbar">
+      <div class="left-controls">
+        <button id="tool-brush" class="tool active" title="Brush (B)">🖌️</button>
+        <button id="tool-eraser" class="tool" title="Eraser (E)">🧽</button>
+        <label class="swatch">
+          <span>Color</span>
+          <input id="color" type="color" value="#1f75fe" />
+        </label>
+        <label class="range">
+          <span>Width</span>
+          <input id="width" type="range" min="1" max="48" value="6" />
+        </label>
+      </div>
+      <div class="right-controls">
+        <button id="undo" title="Global Undo (Ctrl+Z)">↶ Undo</button>
+        <button id="redo" title="Global Redo (Ctrl+Shift+Z)">↷ Redo</button>
+        <select id="room">
+          <option value="lobby">lobby</option>
+          <option value="studio">studio</option>
+          <option value="playground">playground</option>
+        </select>
+        <span id="status" class="status">🔌 connecting…</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <canvas id="canvas"></canvas>
+      <div id="cursors" class="cursors"></div>
+      <div id="users" class="users"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="websocket.js"></script>
+    <script src="canvas.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

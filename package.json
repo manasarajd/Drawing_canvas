@@ -1,0 +1,14 @@
+{
+  "name": "collaborative-canvas",
+  "version": "1.0.0",
+  "description": "Vanilla JS multi-user drawing app with real-time sync and global undo/redo",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
