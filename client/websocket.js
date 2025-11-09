@@ -1,6 +1,8 @@
 // Networking wrapper around Socket.IO client
-const socket = io({ autoConnect: false });
-
+const socket = io(window.location.origin, {
+  autoConnect: false,
+  transports: ["websocket"], // Force websocket (avoid long polling)
+});
 const Net = {
   join(roomId, profile) { socket.emit('room:join', { roomId, profile }); },
   leave(roomId) { socket.emit('room:leave', { roomId }); },
